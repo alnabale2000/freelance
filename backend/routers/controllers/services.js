@@ -53,8 +53,12 @@ const addNewService = async (req, res) => {
 const getServicesByType = async (req, res) => {
     const type = req.params.type;
 
-    const result = await servicesModel.find({ catType: type });
-    res.json(result);
+    try {
+        const result = await servicesModel.find({ catType: type });
+        res.json(result);
+    } catch (error) {
+        res.status(404).json(error);
+    }
 };
 
 module.exports = {
