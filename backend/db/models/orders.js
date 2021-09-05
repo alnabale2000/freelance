@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const orders = new mongoose.Schema({
-    buyerId: { type: mongoose.Schema.Types.ObjectId },
+    buyerId: String, // { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     sellerId: { type: mongoose.Schema.Types.ObjectId, ref: "Services" },
     image: { type: String }, // String, //{ type: Buffer, contentType: String },
     title: { type: String },

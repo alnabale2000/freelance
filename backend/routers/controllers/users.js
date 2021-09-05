@@ -1,17 +1,16 @@
 const usersModel = require("./../../db/models/users");
 
 const createNewAccount = async (req, res) => {
-    const { username, userImage, age, country, email, password, aboutUser, role } = req.body;
+    const { username, /*userImage*/ age, country, email, password, aboutUser } = req.body;
 
     const user = new usersModel({
         username,
-        userImage,
+        // userImage,
         age,
         country,
         email,
         password,
         aboutUser,
-        role,
     });
 
     try {

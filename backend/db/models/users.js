@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const users = new mongoose.Schema({
-    username: { type: String },
+    username: { type: String, unique: true },
     userImage: String,
     age: { type: Number },
     country: { type: String },
@@ -27,7 +27,8 @@ users.statics.authenticateBasic = async function (email, password) {
         if (valid) {
             const payload = {
                 userId: user._id,
-                country: user.country,
+                username: user.username,
+                // userImage: user.userImage,
                 role: user.role,
             };
 

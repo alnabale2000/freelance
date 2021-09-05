@@ -3,6 +3,7 @@ const servicesModel = require("./../../db/models/services");
 
 const createOrder = async (req, res) => {
     const _id = req.params.id;
+    const buyerId = req.body.buyerId;
     if (!_id) return res.status(404).json("not found");
     try {
         const result = await servicesModel
@@ -14,6 +15,7 @@ const createOrder = async (req, res) => {
         const { title, price, username, image } = result;
 
         const newOrder = new ordersModel({
+            buyerId: buyerId,
             sellerId: username,
             title,
             price,
