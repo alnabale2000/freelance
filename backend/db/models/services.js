@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const services = new mongoose.Schema({
-    title: { type: String, required: true },
+    title: { type: String, required: true, required: true },
     deadLine: { type: String },
     price: { type: Number, required: true },
     details: { type: String },
@@ -9,7 +9,7 @@ const services = new mongoose.Schema({
     username: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     catType: { type: String, required: true },
     image: String, //{ type: Buffer, contentType: String },
-    endBy: { type: String },
+    // endBy: { type: String },
     time: { type: Date, default: Date.now() },
 });
 

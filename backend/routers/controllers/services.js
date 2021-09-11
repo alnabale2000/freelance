@@ -32,19 +32,16 @@ const getAllServicesById = async (req, res) => {
 };
 
 const addNewService = async (req, res) => {
-    const { title, deadline, price, details, /* userImage*/ username, catType, image, endBy } =
-        req.body;
-
+    const { title, deadLine, price, details, /* userImage*/ username, catType, image } = req.body;
     const newService = new servicesModel({
         title,
-        deadline,
+        deadLine,
         price,
         details,
         // userImage,
         username,
         catType,
         image,
-        endBy,
     });
 
     try {
